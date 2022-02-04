@@ -51,6 +51,20 @@
         <name value="HL7AU List example"/>
         <description value="Copy of HL7AU example https://github.com/hl7au/au-fhir-base/blob/master/examples/list-0ebc46a8-4ea8-11e9-8647-d663bd873d93.xml"/>
       </resource>
+      <resource>
+        <reference>
+          <reference value="List/example-double-cousin-relationship"/>
+        </reference>
+        <name value="Core spec R4 List example"/>
+        <description value="Copy of HL7AU example http://hl7.org/fhir/list-example-double-cousin-relationship-pedigree.html"/>
+      </resource>
+      <resource>
+        <reference>
+          <reference value="List/example3"/>
+        </reference>
+        <name value="Simple R4 List example with extension"/>
+        <description value="Simple List example with an extension - demonsytrating different rendering from other instance types."/>
+      </resource>
     <page>
       <!-- The root will always be toc.html - the template will force it if you don't do it -->
       <nameUrl value="toc.html"/>

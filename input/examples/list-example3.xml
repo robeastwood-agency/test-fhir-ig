@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<List xmlns="http://hl7.org/fhir">
+    <id value="example3"/>
+    <extension url="http://hl7.org/fhir/StructureDefinition/list-changeBase">
+        <valueReference>
+            <display value="List/example-double-cousin-relationship"/>
+        </valueReference>
+    </extension>
+    <status value="current"/>
+    <mode value="changes"/>
+    <code>
+        <coding>
+            <system value="http://snomed.info/sct"/> 
+            <code value="182836005"/> 
+            <display value="Review of medication"/> 
+        </coding>
+    </code>
+    <subject>
+        <reference value="Patient/example"/>
+    </subject>
+    <date value="2022-01-08"/>
+    <entry>
+        <item>
+            <display value="Ventolin (salbutamol) inhaler CFC free (100 micrograms/dose); 200 dose when needed"/>
+        </item>
+    </entry>
+    <entry>
+        <item>
+            <display value="Zyrtec (cetirizine) 10mg/tablet; dose 1 tablet/day in evening"/>
+        </item>
+    </entry>
+</List>
