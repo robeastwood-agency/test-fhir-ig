@@ -44,6 +44,13 @@
         <description value="A simple example showing how examples are defined and referenced"/>
         <exampleCanonical value="http://somewhere.org/fhir/uv/myig/StructureDefinition/mypatient"/>
       </resource>
+      <resource>
+        <reference>
+          <reference value="List/0ebc46a8-4ea8-11e9-8647-d663bd873d93"/>
+        </reference>
+        <name value="HL7AU List example"/>
+        <description value="Copy of HL7AU example https://github.com/hl7au/au-fhir-base/blob/master/examples/list-0ebc46a8-4ea8-11e9-8647-d663bd873d93.xml"/>
+      </resource>
     <page>
       <!-- The root will always be toc.html - the template will force it if you don't do it -->
       <nameUrl value="toc.html"/>
