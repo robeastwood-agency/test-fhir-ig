@@ -1,7 +1,7 @@
 {
- "package-id" : "test.fhir.ig.01",
- "title" : "Test FHIR Implementation Guide 01", 
- "canonical" : "https://github.com/robeastwood-agency/fhir/ig/ImplementationGuide/test.fhir.ig.01", 
+ "package-id" : "rob.test.fhir.ig.01",
+ "title" : "Rob's Test FHIR Implementation Guide 01", 
+ "canonical" : "https://github.com/robeastwood-agency/fhir/ig/ImplementationGuide/rob.test.fhir.ig.01", 
  "introduction" : "The introduction that should appear in the FHIR IG registry",
  "list" : [{
   "version" : "current",
