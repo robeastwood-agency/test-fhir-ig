@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ImplementationGuide xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../input-cache/schemas/R5/fhir-single.xsd">
+  <id value="test.fhir.ig.01"/>
+  <url value="https://github.com/robeastwood-agency/fhir/ig/ImplementationGuide/test.fhir.ig.01"/>
+  <version value="0.0.1"/>
+  <name value="TestFHIRIG01"/>
+  <title value="Test FHIR Implementation Guide 01"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="https://github.com/robeastwood-agency"/>
+    </telecom>
+  </contact>
+  <description value="FHIR IG tests"/>
+  <jurisdiction>
+    <!-- This will drive SNOMED release used -->
+    <coding>
+      <!-- This is the code for universal -->
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="AU"/>
+      <!-- Change to this if the IG is country-specific
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+      -->
+    </coding>
+  </jurisdiction>
+  <packageId value="test.fhir.ig.01"/>
+  <!-- This should be changed to 'not-open-source' or another license if appropriate for non-HL7-published content -->
+  <license value="CC0-1.0"/>
+  <!-- This is whatever FHIR version(s) the IG artifacts are targeting (not the version of this file, which should always be 'current release') -->
+  <fhirVersion value="4.0.1"/>
+  <definition>
+    <!-- You don't need to define any groupings.  The IGPublisher will define them for you.  You only need to do so if your IG is 'special' and it's
+      inappropriate to use the defaults.  Feel free to provide feedback about the defaults... -->
+      <resource>
+        <reference>
+          <reference value="Patient/example"/>
+        </reference>
+        <name value="Simple patient example"/>
+        <description value="A simple example showing how examples are defined and referenced"/>
+        <exampleCanonical value="http://somewhere.org/fhir/uv/myig/StructureDefinition/mypatient"/>
+      </resource>
+    <page>
+      <!-- The root will always be toc.html - the template will force it if you don't do it -->
+      <nameUrl value="toc.html"/>
+      <title value="Table of Contents"/>
+      <generation value="html"/>
+      <page>
+        <nameUrl value="index.html"/>
+        <title value="MyIG Home Page"/>
+        <generation value="html"/>
+      </page>
+    </page>
+    <!-- copyright year is a mandatory parameter -->
+    <parameter>
+      <code value="copyrightyear"/>
+      <value value="2022+"/>
+    </parameter>
+    <!-- releaselabel should be the ballot status for HL7-published IGs. -->
+    <parameter>
+      <code value="releaselabel"/>
+      <value value="CI Build"/>
+    </parameter>
+    <parameter>
+      <code value="find-other-resources"/>
+      <value value="true"/>
+    </parameter>
+    <!-- <parameter>
+      <code value="path-resource"/>
+      <value value="input/resources"/>
+    </parameter> -->
+    <parameter>
+      <code value="path-liquid"/>
+      <value value="templates\liquid"/>
+    </parameter>
+    <parameter>
+      <code value="shownav"/>
+      <value value="true"/>
+    </parameter>
+    <!-- Uncomment one or more of these if you want to limit which syntaxes are supported or want to disable the display of mappings -->
+    <!-- <parameter>
+      <code value="excludexml"/>
+      <value value="true"/>
+    </parameter>-->
+    <!-- <parameter>
+      <code value="excludejson"/>
+      <value value="true"/>
+    </parameter>-->
+    <parameter>
+      <code value="excludettl"/>
+      <value value="true"/>
+    </parameter>
+    <parameter>
+      <code value="excludemap"/>
+      <value value="true"/>
+    </parameter>
+    <parameter>
+      <code value="logging"/>
+      <value value="init"/>
+    </parameter>
+    <parameter>
+      <code value="logging"/>
+      <value value="progress"/>
+    </parameter>
+    <parameter>
+      <code value="logging"/>
+      <value value="tx"/>
+    </parameter>
+    <parameter>
+      <code value="logging"/>
+      <value value="generate"/>
+    </parameter>
+    <parameter>
+      <code value="logging"/>
+      <value value="html"/>
+    </parameter>
+    <parameter>
+      <code value="showsource"/>
+      <value value="true"/>
+    </parameter>
+  </definition>
+</ImplementationGuide>
