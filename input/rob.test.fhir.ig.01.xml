@@ -3,12 +3,13 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://hl7.org/fhir ../input-cache/schemas/R5/fhir-single.xsd">
   <id value="test.fhir.ig.01"/>
-  <url value="https://github.com/robeastwood-agency/fhir/ig/ImplementationGuide/test.fhir.ig.01"/>
+  <url value="https://github.com/robeastwood-agency/fhir/ig/ImplementationGuide/rob.test.fhir.ig.01"/>
   <version value="0.0.1"/>
-  <name value="TestFHIRIG01"/>
-  <title value="Test FHIR Implementation Guide 01"/>
+  <name value="RobsTestFHIRIG01"/>
+  <title value="Rob's Test FHIR Implementation Guide 01"/>
   <status value="draft"/>
   <experimental value="true"/>
+  <publisher value="Rob Eastwood (himself)"/>
   <contact>
     <telecom>
       <system value="url"/>
@@ -28,7 +29,7 @@
       -->
     </coding>
   </jurisdiction>
-  <packageId value="test.fhir.ig.01"/>
+  <packageId value="rob.test.fhir.ig.01"/>
   <!-- This should be changed to 'not-open-source' or another license if appropriate for non-HL7-published content -->
   <license value="CC0-1.0"/>
   <!-- This is whatever FHIR version(s) the IG artifacts are targeting (not the version of this file, which should always be 'current release') -->
@@ -72,7 +73,7 @@
       <generation value="html"/>
       <page>
         <nameUrl value="index.html"/>
-        <title value="MyIG Home Page"/>
+        <title value="Rob's Test FHIR Implementation Guide Home Page"/>
         <generation value="html"/>
       </page>
     </page>
