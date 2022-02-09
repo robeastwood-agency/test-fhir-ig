@@ -24,6 +24,15 @@
     <given value="Jingleheimer"/>
     <period>
       <start value="2001-01-01"/>
-    </period>    
+    </period>
   </name>
+  <gender value="male"/>
+  <birthDate value="1956-05-27"/>
+  <address>
+    <line value="100 Main St"/>
+    <city value="Metropolis"/>
+    <state value="Il"/>
+    <postalCode value="44130"/>
+    <country value="USA"/>
+  </address>
 </Patient>
