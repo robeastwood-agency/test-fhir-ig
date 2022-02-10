@@ -2,7 +2,7 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://hl7.org/fhir ../input-cache/schemas/R5/fhir-single.xsd">
-  <id value="test.fhir.ig.01"/>
+  <id value="rob.test.fhir.ig.01"/>
   <url value="https://github.com/robeastwood-agency/fhir/ig/ImplementationGuide/rob.test.fhir.ig.01"/>
   <version value="0.0.1"/>
   <name value="RobsTestFHIRIG01"/>
