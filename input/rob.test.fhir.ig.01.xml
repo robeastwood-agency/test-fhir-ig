@@ -44,6 +44,13 @@
         <name value="Simple patient example"/>
         <description value="A simple example showing how examples are defined and referenced"/>
       </resource>
+    <resource>
+      <reference>
+        <reference value="Practitioner/example"/>
+      </reference>
+      <name value="Simple Practitioner example"/>
+      <description value="An example copied from R4 and adapted to include a contained resource for troubleshooting"/>
+    </resource>
     <page>
       <!-- The root will always be toc.html - the template will force it if you don't do it -->
       <nameUrl value="toc.html"/>

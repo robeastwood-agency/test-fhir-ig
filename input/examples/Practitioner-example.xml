@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Practitioner xmlns="http://hl7.org/fhir">
+	<id value="example"/>
+	<contained>
+		<Organization>
+			<id value="organization-1"/>
+			<name value="The Royal Australian College of General Practitioners"/>
+			<address>
+				<country value="AU"/>
+			</address>
+		</Organization>
+	</contained>
+	<name>
+		<use value="official"/>
+		<text value="Dokter Bronsig"/>
+		<family value="Bronsig"/>
+		<given value="Arend"/>
+		<prefix value="Dr."/>
+	</name>
+	<telecom>
+		<system value="phone"/>
+		<value value="+31715269111"/>
+		<use value="work"/>
+	</telecom>
+	<address>
+		<use value="work"/>
+		<line value="Walvisbaai 3"/>
+		<line value="C4 - Automatisering"/>
+		<city value="Den helder"/>
+		<postalCode value="2333ZA"/>
+		<country value="NLD"/>
+	</address>
+	<gender value="male"/>
+	<birthDate value="1956-12-24"/>
+	<qualification>
+		<code>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="41672002"/>
+				<display value="Pulmonologist"/>
+			</coding>
+		</code>
+		<issuer>
+			<reference value="#organization-1"/>
+		</issuer>
+	</qualification>
+</Practitioner>
