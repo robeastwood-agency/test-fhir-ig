@@ -60,3 +60,14 @@ v: {
   "system" : "http://snomed.info/sct"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "41672002",
+  "display" : "Pulmonologist"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Respiratory disease specialist",
+  "code" : "41672002",
+  "system" : "http://snomed.info/sct"
+}
+-------------------------------------------------------------------------------------
