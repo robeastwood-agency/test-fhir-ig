@@ -10,11 +10,14 @@ The operation used to validate these resources is found on the core spec pages:
 
 Original source on NCTS: https://www.humanservices.gov.au/organisations/health-professionals/enablers/air-vaccine-code-formats
 
-Found on tx.fhir.org here: https://tx.fhir.org/r4/CodeSystem/australian-immunisation-register-vaccine-20210222
+Mirrored on tx.fhir.org here: https://tx.fhir.org/r4/CodeSystem/australian-immunisation-register-vaccine-20210222 (v20210222)
 
 ### Testing
 [![Programmatically expand 'Australian Immunisation Register Vaccine' CodeSystem](https://github.com/robeastwood-agency/test-fhir-ig/actions/workflows/valueset-air-expand.yml/badge.svg?branch=fhir.tx.support.r4-validation)](https://github.com/robeastwood-agency/test-fhir-ig/actions/workflows/valueset-air-expand.yml)
 
+[![Programmatically expand 'Australian Immunisation Register Vaccine' CodeSystem](https://github.com/robeastwood-agency/test-fhir-ig/actions/workflows/valueset-air-expand.yml/badge.svg?branch=fhir.tx.support.r4-validation)](https://github.com/robeastwood-agency/test-fhir-ig/actions/workflows/valueset-air-expand.yml)
+
+[![Programmatically expand 'Australian Immunisation Register Vaccine' CodeSystem](https://github.com/robeastwood-agency/test-fhir-ig/actions/workflows/valueset-air-expand.yml/badge.svg?branch=fhir.tx.support.r4-validation)](https://github.com/robeastwood-agency/test-fhir-ig/actions/workflows/valueset-air-expand.yml)
 
 ## CodeSystem: NCTIS Data Components
 
