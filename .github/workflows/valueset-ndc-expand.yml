@@ -22,7 +22,7 @@ jobs:
           url: 'http://tx.fhir.org/r4/ValueSet/$expand'
           method: 'POST'
           contentType: 'application/fhir+json'
-          ignoreStatusCodes: '422'
+          # ignoreStatusCodes: '422'
           file: "${{ github.workspace }}/REST/parameter-ndc-expansion.json"
 
       - name: Show response
