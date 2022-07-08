@@ -22,7 +22,6 @@ jobs:
           url: 'http://tx.fhir.org/r4/ValueSet/$validate-code'
           method: 'POST'
           contentType: 'application/fhir+json'
-          # ignoreStatusCodes: '422'
           file: "${{ github.workspace }}/REST/parameter-air-validate-code-pass.json"
 
       - name: Show response
