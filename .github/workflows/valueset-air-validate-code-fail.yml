@@ -26,8 +26,8 @@ jobs:
 
       - name: Show response
         env:
-          RESULT: ${{ fromJson(steps.request.outputs.response).Parameters.parameter[0].valueBoolean }}
-          # RESULT: ${{ fromJson(steps.request.outputs.response) }}
+          # RESULT: ${{ fromJson(steps.request.outputs.response).Parameters.parameter[0].valueBoolean }}
+          RESULT: ${{ fromJson(steps.request.outputs.response) }}
           # MESSAGE: ${{ fromJson(steps.request.outputs.response).Parameters.parameter[1].valueString }}
           # CAUSE: ${{ fromJson(steps.request.outputs.response).Parameters.parameter[2].valueString }}
         run: |
