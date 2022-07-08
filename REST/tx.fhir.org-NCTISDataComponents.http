@@ -1,15 +1,21 @@
 @serverurl = http://tx.fhir.org/r4/
 
+// http://hl7.org/fhir/valueset-operation-expand.html
 // http://hl7.org/fhir/valueset-operation-validate-code.html
 
-// ===================================================================================================================================
-
-// the external code system 'Australian Immunisation Register Vaccine' has been added to fhir.tx.support.r4
-// available: https://tx.fhir.org/r4/CodeSystem/australian-immunisation-register-vaccine-20210222
+// the external code system 'NCTIS Data Components' has NOT been added to fhir.tx.support.r4
 
 ###
 // programatically expand a parameter-supplied value set
-// 
+// as this CodeSystem is not yet loaded into fhir.tx.support.r4 then
+// returns an OperationOutcome instance with:
+//
+//   {
+//      "severity": "error",
+//      "code": "not-supported",
+//      "details": {
+//        "text": "Unable to provide support for code system https://healthterminologies.gov.au/fhir/CodeSystem/nctis-data-components-1"
+//    },
 
 POST {{serverurl}}/ValueSet/$expand
 Accept: application/fhir+json
@@ -23,72 +29,11 @@ Content-Type: application/fhir+json;charset=UTF-8
             "resource": {
                 "resourceType": "ValueSet",
                 "status": "unknown",
-                "compose": {"include": [{"system": "https://www.humanservices.gov.au/organisations/health-professionals/enablers/air-vaccine-code-formats"}]}
+                "compose": {"include": [{"system": "https://healthterminologies.gov.au/fhir/CodeSystem/nctis-data-components-1"}]}
             }
         }
     ]
 }
-
-### 
-// validates if the supplied (and invalid) code "TESTCODE" is a member of the supplied value set
-// returns result: false
-// error message: "The code 'TESTCODE' is not valid in the system https://www.humanservices.gov.au/organisations/health-professionals/enablers/air-vaccine-code-formats"
-POST {{serverurl}}/ValueSet/$validate-code
-Accept: application/fhir+json
-Content-Type: application/fhir+json;charset=UTF-8
-
-{
-    "resourceType": "Parameters",
-    "parameter": [
-        {
-            "name": "coding",
-            "valueCoding": {
-                "system": "https://www.humanservices.gov.au/organisations/health-professionals/enablers/air-vaccine-code-formats",
-                "code": "TESTCODE"
-            }
-        },
-        {
-            "name": "valueSet",
-            "resource": {
-                "resourceType": "ValueSet",
-                "status": "unknown",
-                "compose": {"include": [{"system": "https://www.humanservices.gov.au/organisations/health-professionals/enablers/air-vaccine-code-formats"}]}
-            }
-        }
-    ]
-}
-
-### 
-// validates if the supplied (and valid) code "COVAST" is a member of the supplied value set
-// returns result: true
-POST {{serverurl}}/ValueSet/$validate-code
-Accept: application/fhir+json
-Content-Type: application/fhir+json;charset=UTF-8
-
-{
-    "resourceType": "Parameters",
-    "parameter": [
-        {
-            "name": "coding",
-            "valueCoding": {
-                "system": "https://www.humanservices.gov.au/organisations/health-professionals/enablers/air-vaccine-code-formats",
-                "code": "COVAST"
-            }
-        },
-        {
-            "name": "valueSet",
-            "resource": {
-                "resourceType": "ValueSet",
-                "status": "unknown",
-                "compose": {"include": [{"system": "https://www.humanservices.gov.au/organisations/health-professionals/enablers/air-vaccine-code-formats"}]}
-            }
-        }
-    ]
-}
-
-// ===================================================================================================================================
-
-// the external code system 'NCTIS Data Components' has NOT been added to fhir.tx.support.r4
 
 ### 
 // validates if the supplied code "100.16671" is a member of the supplied value set
