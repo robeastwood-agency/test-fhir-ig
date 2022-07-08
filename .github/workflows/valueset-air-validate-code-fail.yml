@@ -25,13 +25,13 @@ jobs:
           file: "${{ github.workspace }}/REST/parameter-air-validate-code-fail.json"
 
       - name: Show response
-        env:
+        #env:
           # RESULT: ${{ fromJson(steps.request.outputs.response).Parameters.parameter[0].valueBoolean }}
-          RESULT: ${{ fromJson(steps.request.outputs.response) }}
+          # RESULT: ${{ fromJson(steps.request.outputs.response) }}
           # MESSAGE: ${{ fromJson(steps.request.outputs.response).Parameters.parameter[1].valueString }}
           # CAUSE: ${{ fromJson(steps.request.outputs.response).Parameters.parameter[2].valueString }}
         run: |
-          # echo ${{ steps.request.outputs.response }}
-          echo $RESULT
+          echo ${{ steps.request.outputs.response }}
+          # echo $RESULT
           # echo $MESSAGE
           # echo $CAUSE
