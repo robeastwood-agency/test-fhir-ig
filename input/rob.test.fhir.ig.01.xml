@@ -44,6 +44,51 @@
         <name value="Simple patient example"/>
         <description value="A simple example showing how examples are defined and referenced"/>
       </resource>
+      <resource>
+        <reference>
+          <reference value="ValueSet/australian-immunisation-register-vaccine-1"/>
+        </reference>
+        <name value="Australian Immunisation Register Vaccine"/>
+        <description value="Australian Immunisation Register Vaccine value set from NCTS https://healthterminologies.gov.au/fhir/ValueSet/australian-immunisation-register-vaccine-1"/>
+      </resource>
+      <resource>
+        <reference>
+          <reference value="ValueSet/nctis-data-components-1"/>
+        </reference>
+        <name value="NCTIS Data Components"/>
+        <description value="NCTIS Data Components value set from NCTS https://healthterminologies.gov.au/fhir/ValueSet/nctis-data-components-1"/>
+      </resource>
+      <resource>
+        <reference>
+          <reference value="StructureDefinition/immunization-test"/>
+        </reference>
+        <name value="Immunization Test"/>
+        <description value="This profile is to verify that external code systems added to fhir.tx.support.r4 are validated by the FHIR tooling ecosystem."/>
+      </resource>
+
+      <!-- examples -->
+      <resource>
+        <reference>
+          <reference value="Immunization/test-pass-01"/>
+        </reference>
+        <name value="Immunization Test pass 01"/>
+        <description value="This example supplies a valid coding for vaccineCode."/>
+      </resource>
+      <resource>
+        <reference>
+          <reference value="Immunization/test-fail-01"/>
+        </reference>
+        <name value="Immunization Test fail 01"/>
+        <description value="This example supplies the correct coding.system for vaccineCode but the coding.code is invalid."/>
+      </resource>
+      <resource>
+        <reference>
+          <reference value="Immunization/test-fail-02"/>
+        </reference>
+        <name value="Immunization Test fail 02"/>
+        <description value="This example supplies incorrect vaccineCode.coding (both system and code)."/>
+      </resource>
+
     <page>
       <!-- The root will always be toc.html - the template will force it if you don't do it -->
       <nameUrl value="toc.html"/>

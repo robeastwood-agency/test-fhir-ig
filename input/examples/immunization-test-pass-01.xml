@@ -1,0 +1,26 @@
+<Immunization xmlns="http://hl7.org/fhir">
+	<id value="test-pass-01"/>
+
+	<!-- PASSING TEST CASE -->
+
+	<!-- the vaccineCode is a valid code taken from the required value set -->
+
+	<meta>
+		<profile
+			value="https://github.com/robeastwood-agency/fhir/ig/StructureDefinition/immunization-test"
+		/>
+	</meta>
+	<status value="completed"/>
+	<vaccineCode>
+		<coding>
+			<system
+				value="https://www.humanservices.gov.au/organisations/health-professionals/enablers/air-vaccine-code-formats"/>
+			<code value="COMIRN"/>
+			<display value="Pfizer Comirnaty"/>
+		</coding>
+	</vaccineCode>
+	<patient>
+		<display value="Harry TEST CASE"/>
+	</patient>
+	<occurrenceDateTime value="2022-07-15"/>
+</Immunization>

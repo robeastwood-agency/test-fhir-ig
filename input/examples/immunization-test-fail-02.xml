@@ -1,0 +1,26 @@
+<Immunization xmlns="http://hl7.org/fhir">
+	<id value="test-fail-02"/>
+
+	<!-- FAILING TEST CASE -->
+
+	<!-- the vaccineCode has coding values which are not present in the required valueset binding -->
+	<!-- note though that the supplied coding is valid in the context of SNOMED CT international -->
+
+	<meta>
+		<profile
+			value="https://github.com/robeastwood-agency/fhir/ig/StructureDefinition/immunization-test"
+		/>
+	</meta>
+	<status value="completed"/>
+	<vaccineCode>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="1119349007"/>
+			<display value="SARS-CoV-2 mRNA vaccine"/>
+		</coding>
+	</vaccineCode>
+	<patient>
+		<display value="Harry TEST CASE"/>
+	</patient>
+	<occurrenceDateTime value="2022-07-15"/>
+</Immunization>
