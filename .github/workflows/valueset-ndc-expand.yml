@@ -16,7 +16,7 @@ jobs:
 
       - name: POST to http://tx.fhir.org
         id: request
-        uses: fjogeleit/http-request-action@v1
+        uses: fjogeleit/http-request-action@v1.9.2
         
         with:
           url: 'http://tx.fhir.org/r4/ValueSet/$expand'
