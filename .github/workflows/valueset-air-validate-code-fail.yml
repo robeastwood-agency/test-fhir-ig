@@ -31,6 +31,6 @@ jobs:
           CAUSE: ${{ fromJson(steps.request.outputs.response).Parameters.parameter[2].valueString }}
         run: |
           # echo ${{ steps.request.outputs.response }}
-          echo RESULT
-          echo MESSAGE
-          echo CAUSE
+          echo $RESULT
+          echo $MESSAGE
+          echo $CAUSE
