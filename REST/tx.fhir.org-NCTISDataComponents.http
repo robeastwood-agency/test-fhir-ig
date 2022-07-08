@@ -1,0 +1,168 @@
+@serverurl = http://tx.fhir.org/r4/
+
+// http://hl7.org/fhir/valueset-operation-validate-code.html
+
+// ===================================================================================================================================
+
+// the external code system 'Australian Immunisation Register Vaccine' has been added to fhir.tx.support.r4
+// available: https://tx.fhir.org/r4/CodeSystem/australian-immunisation-register-vaccine-20210222
+
+###
+// programatically expand a parameter-supplied value set
+// 
+
+POST {{serverurl}}/ValueSet/$expand
+Accept: application/fhir+json
+Content-Type: application/fhir+json;charset=UTF-8
+
+{
+    "resourceType": "Parameters",
+    "parameter": [
+        {
+            "name": "valueSet",
+            "resource": {
+                "resourceType": "ValueSet",
+                "status": "unknown",
+                "compose": {"include": [{"system": "https://www.humanservices.gov.au/organisations/health-professionals/enablers/air-vaccine-code-formats"}]}
+            }
+        }
+    ]
+}
+
+### 
+// validates if the supplied (and invalid) code "TESTCODE" is a member of the supplied value set
+// returns result: false
+// error message: "The code 'TESTCODE' is not valid in the system https://www.humanservices.gov.au/organisations/health-professionals/enablers/air-vaccine-code-formats"
+POST {{serverurl}}/ValueSet/$validate-code
+Accept: application/fhir+json
+Content-Type: application/fhir+json;charset=UTF-8
+
+{
+    "resourceType": "Parameters",
+    "parameter": [
+        {
+            "name": "coding",
+            "valueCoding": {
+                "system": "https://www.humanservices.gov.au/organisations/health-professionals/enablers/air-vaccine-code-formats",
+                "code": "TESTCODE"
+            }
+        },
+        {
+            "name": "valueSet",
+            "resource": {
+                "resourceType": "ValueSet",
+                "status": "unknown",
+                "compose": {"include": [{"system": "https://www.humanservices.gov.au/organisations/health-professionals/enablers/air-vaccine-code-formats"}]}
+            }
+        }
+    ]
+}
+
+### 
+// validates if the supplied (and valid) code "COVAST" is a member of the supplied value set
+// returns result: true
+POST {{serverurl}}/ValueSet/$validate-code
+Accept: application/fhir+json
+Content-Type: application/fhir+json;charset=UTF-8
+
+{
+    "resourceType": "Parameters",
+    "parameter": [
+        {
+            "name": "coding",
+            "valueCoding": {
+                "system": "https://www.humanservices.gov.au/organisations/health-professionals/enablers/air-vaccine-code-formats",
+                "code": "COVAST"
+            }
+        },
+        {
+            "name": "valueSet",
+            "resource": {
+                "resourceType": "ValueSet",
+                "status": "unknown",
+                "compose": {"include": [{"system": "https://www.humanservices.gov.au/organisations/health-professionals/enablers/air-vaccine-code-formats"}]}
+            }
+        }
+    ]
+}
+
+// ===================================================================================================================================
+
+// the external code system 'NCTIS Data Components' has NOT been added to fhir.tx.support.r4
+
+### 
+// validates if the supplied code "100.16671" is a member of the supplied value set
+// this is a valid code in NCTS here https://healthterminologies.gov.au/fhir/CodeSystem/nctis-data-components-1
+// but as it is not yet loaded in fhir.tx.support.r4
+// returns result: false
+// error message: "The code system 'https://healthterminologies.gov.au/fhir/CodeSystem/nctis-data-components-1' in the include in 'https://healthterminologies.gov.au/fhir/ValueSet/nctis-data-components-1' is not known"
+// this will return result: true once it is available in fhir.tx.support.r4
+
+POST {{serverurl}}/ValueSet/$validate-code
+Accept: application/fhir+json
+Content-Type: application/fhir+json;charset=UTF-8
+
+{
+    "resourceType": "Parameters",
+    "parameter": [
+        {
+            "name": "coding",
+            "valueCoding": {
+                "system": "https://healthterminologies.gov.au/fhir/CodeSystem/nctis-data-components-1",
+                "code": "100.16671"
+            }
+        },
+        {
+            "name": "valueSet",
+            "resource": {
+                "resourceType": "ValueSet",
+                "status": "unknown",
+                "compose": {"include": [{"system": "https://healthterminologies.gov.au/fhir/CodeSystem/nctis-data-components-1"}]}
+            }
+        }
+    ]
+}
+
+### 
+// validates if the supplied (and invalid) code "109.99999" is a member of the supplied value set
+// this is NOT a valid code in NCTS here https://healthterminologies.gov.au/fhir/CodeSystem/nctis-data-components-1
+// but as it is not yet loaded in fhir.tx.support.r4
+// returns result: false
+// error message: "The code system 'https://healthterminologies.gov.au/fhir/CodeSystem/nctis-data-components-1' in the include in 'https://healthterminologies.gov.au/fhir/ValueSet/nctis-data-components-1' is not known"
+// once it is available in fhir.tx.support.r4, this will return:
+// result: false
+// error message: "The code '109.99999' is not valid in the system https://healthterminologies.gov.au/fhir/CodeSystem/nctis-data-components-1"
+
+POST {{serverurl}}/ValueSet/$validate-code
+Accept: application/fhir+json
+Content-Type: application/fhir+json;charset=UTF-8
+
+{
+    "resourceType": "Parameters",
+    "parameter": [
+        {
+            "name": "coding",
+            "valueCoding": {
+                "system": "https://healthterminologies.gov.au/fhir/CodeSystem/nctis-data-components-1",
+                "code": "109.99999"
+            }
+        },
+        {
+            "name": "valueSet",
+            "resource": {
+                "resourceType": "ValueSet",
+                "status": "unknown",
+                "compose": {"include": [{"system": "https://healthterminologies.gov.au/fhir/CodeSystem/nctis-data-components-1"}]}
+            }
+        }
+    ]
+}
+
+
+
+
+
+// Github actions to automate some of this:
+
+// see https://github.com/marketplace/actions/http-request-action
+// and example https://github.com/fjogeleit/http-request-action/blob/main/.github/workflows/test.yml
