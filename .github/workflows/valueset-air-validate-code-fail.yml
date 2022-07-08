@@ -27,9 +27,9 @@ jobs:
       - name: Show response
         run: |
           # echo ${{ steps.request.outputs.response }}
-          result = ${{ fromJson(steps.request.outputs.response).Parameters.parameter[name='result'].valueBoolean }}
+          result = ${{ fromJson(steps.request.outputs.response).Parameters.parameter['name'='result'].valueBoolean }}
           echo result
-          message = ${{ fromJson(steps.request.outputs.response).Parameters.parameter[name='message'].valueString }}
+          message = ${{ fromJson(steps.request.outputs.response).Parameters.parameter['name'='message'].valueString }}
           echo message
-          cause = ${{ fromJson(steps.request.outputs.response).Parameters.parameter[name='cause'].valueString }}
+          cause = ${{ fromJson(steps.request.outputs.response).Parameters.parameter['name'='cause'].valueString }}
           echo cause
