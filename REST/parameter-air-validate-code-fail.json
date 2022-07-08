@@ -1,0 +1,20 @@
+{
+    "resourceType": "Parameters",
+    "parameter": [
+        {
+            "name": "coding",
+            "valueCoding": {
+                "system": "https://www.humanservices.gov.au/organisations/health-professionals/enablers/air-vaccine-code-formats",
+                "code": "TESTCODE"
+            }
+        },
+        {
+            "name": "valueSet",
+            "resource": {
+                "resourceType": "ValueSet",
+                "status": "unknown",
+                "compose": {"include": [{"system": "https://www.humanservices.gov.au/organisations/health-professionals/enablers/air-vaccine-code-formats"}]}
+            }
+        }
+    ]
+}

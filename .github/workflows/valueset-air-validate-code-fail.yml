@@ -1,0 +1,30 @@
+name: Programmatically validate a non-existing code in 'Australian Immunisation Register Vaccine' CodeSystem
+
+on: 
+  [push, pull_request]
+  
+jobs:
+
+  request:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      
+      - name: check out repo under $GITHUB_WORKSPACE
+        uses: actions/checkout@v3
+
+      - name: POST to http://tx.fhir.org
+        id: request
+        uses: fjogeleit/http-request-action@v1.9.2
+        
+        with:
+          url: 'http://tx.fhir.org/r4/ValueSet/$expand'
+          method: 'POST'
+          contentType: 'application/fhir+json'
+          # ignoreStatusCodes: '422'
+          file: "${{ github.workspace }}/REST/parameter-air-validate-code-fail.json"
+
+      - name: Show response
+        run: echo ${{ steps.request.outputs.response }}
+          # echo ${{ fromJson(steps.request.outputs.response). }}
