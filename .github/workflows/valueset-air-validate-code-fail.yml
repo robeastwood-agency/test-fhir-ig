@@ -26,9 +26,9 @@ jobs:
 
       - name: Show response
         env:
-          RESULT: ${{ fromJson(steps.request.outputs.response).Parameters.parameter['name'='result'].valueBoolean }}
-          MESSAGE: ${{ fromJson(steps.request.outputs.response).Parameters.parameter['name'='message'].valueString }}
-          CAUSE: ${{ fromJson(steps.request.outputs.response).Parameters.parameter['name'='cause'].valueString }}
+          RESULT: ${{ fromJson(steps.request.outputs.response).Parameters.parameter[0].valueBoolean }}
+          MESSAGE: ${{ fromJson(steps.request.outputs.response).Parameters.parameter[1].valueString }}
+          CAUSE: ${{ fromJson(steps.request.outputs.response).Parameters.parameter[2].valueString }}
         run: |
           # echo ${{ steps.request.outputs.response }}
           echo RESULT
