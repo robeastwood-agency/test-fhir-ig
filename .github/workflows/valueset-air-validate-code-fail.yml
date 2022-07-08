@@ -22,9 +22,14 @@ jobs:
           url: 'http://tx.fhir.org/r4/ValueSet/$validate-code'
           method: 'POST'
           contentType: 'application/fhir+json'
-          # ignoreStatusCodes: '422'
           file: "${{ github.workspace }}/REST/parameter-air-validate-code-fail.json"
 
       - name: Show response
-        run: echo ${{ steps.request.outputs.response }}
-          # echo ${{ fromJson(steps.request.outputs.response). }}
+        run: |
+          # echo ${{ steps.request.outputs.response }}
+          result = ${{ fromJson(steps.request.outputs.response).Parameters.parameter[name='result'].valueBoolean }}
+          echo result
+          message = ${{ fromJson(steps.request.outputs.response).Parameters.parameter[name='message'].valueString }}
+          echo message
+          cause = ${{ fromJson(steps.request.outputs.response).Parameters.parameter[name='cause'].valueString }}
+          echo cause
