@@ -21,6 +21,7 @@ jobs:
         with:
           url: 'http://tx.fhir.org/r4/ValueSet/$expand'
           method: 'POST'
+          ignoreStatusCodes: '422'
           contentType: 'application/fhir+json'
           file: "${{ github.workspace }}/REST/parameter-air-expansion.json"
 
