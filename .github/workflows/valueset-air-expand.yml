@@ -16,7 +16,7 @@ jobs:
 
       - name: POST to http://tx.fhir.org
         id: request
-        uses: fjogeleit/http-request-action@v1
+        uses: fjogeleit/http-request-action@v1.9.2
         
         with:
           url: 'http://tx.fhir.org/r4/ValueSet/$expand'
@@ -25,6 +25,9 @@ jobs:
           contentType: 'application/fhir+json'
           file: "${{ github.workspace }}/REST/parameter-air-expansion.json"
 
-      - name: Show response
-        run: echo ${{ steps.request.outputs.response }}
-          # echo ${{ fromJson(steps.request.outputs.response). }}
+      - name: Check response
+        env:
+          RESOURCE: ${{ fromJson(steps.request.outputs.response).resourceType }}
+        run: |
+          echo ${{ steps.request.outputs.response }}
+          $RESOURCE == "ValueSet"
