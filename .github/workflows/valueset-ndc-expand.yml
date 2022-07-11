@@ -35,4 +35,4 @@ jobs:
           echo $RESOURCE
           # should only pass when response resourceType = "ValueSet"
           # should fail when response resourceType = "OperationOutcome" (which contains an issue of severity error)
-          if: "{{ env.RESOURCE == 'ValueSet' }}"
+          if: ${{ env.RESOURCE == 'ValueSet' }}
