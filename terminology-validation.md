@@ -15,6 +15,10 @@ Mirrored on tx.fhir.org here: https://tx.fhir.org/r4/CodeSystem/australian-immun
 ### Testing
 [![ValueSet $expand on 'Australian Immunisation Register Vaccine' CodeSystem](https://github.com/robeastwood-agency/test-fhir-ig/actions/workflows/valueset-air-expand.yml/badge.svg?branch=fhir.tx.support.r4-validation)](https://github.com/robeastwood-agency/test-fhir-ig/actions/workflows/valueset-air-expand.yml)
 
+[![ValueSet $validate-code an existing code in 'Australian Immunisation Register Vaccine' CodeSystem](https://github.com/robeastwood-agency/test-fhir-ig/actions/workflows/valueset-air-validate-code-pass.yml/badge.svg)](https://github.com/robeastwood-agency/test-fhir-ig/actions/workflows/valueset-air-validate-code-pass.yml)
+
+[![ValueSet $validate-code a non-existing code in 'Australian Immunisation Register Vaccine' CodeSystem](https://github.com/robeastwood-agency/test-fhir-ig/actions/workflows/valueset-air-validate-code-fail.yml/badge.svg)](https://github.com/robeastwood-agency/test-fhir-ig/actions/workflows/valueset-air-validate-code-fail.yml)
+
 ## CodeSystem: NCTIS Data Components
 
 Original source on NCTS: https://healthterminologies.gov.au/fhir/CodeSystem/nctis-data-components-1
