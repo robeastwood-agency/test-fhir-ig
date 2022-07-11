@@ -25,9 +25,12 @@ jobs:
           contentType: 'application/fhir+json'
           file: "${{ github.workspace }}/REST/parameter-air-expansion.json"
 
+      - name: Show response
+        run: echo ${{ steps.request.outputs.response }}
+
       - name: Check response
         env:
           RESOURCE: ${{ fromJson(steps.request.outputs.response).resourceType }}
         run: |
-          echo ${{ steps.request.outputs.response }}
-          $RESOURCE == "ValueSet"
+          echo $RESOURCE
+          if: contains($RESOURCE, 'ValueSet')
