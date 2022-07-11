@@ -1,0 +1,20 @@
+{
+    "resourceType": "Parameters",
+    "parameter": [
+        {
+            "name": "coding",
+            "valueCoding": {
+                "system": "https://healthterminologies.gov.au/fhir/CodeSystem/nctis-data-components-1",
+                "code": "100.16671"
+            }
+        },
+        {
+            "name": "valueSet",
+            "resource": {
+                "resourceType": "ValueSet",
+                "status": "unknown",
+                "compose": {"include": [{"system": "https://healthterminologies.gov.au/fhir/CodeSystem/nctis-data-components-1"}]}
+            }
+        }
+    ]
+}

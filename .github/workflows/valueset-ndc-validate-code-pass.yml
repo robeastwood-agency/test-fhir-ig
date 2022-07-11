@@ -1,0 +1,40 @@
+name: Programmatically validate an existing code in 'NCTIS Data Components' CodeSystem
+
+on: 
+  [push, pull_request]
+  
+jobs:
+
+  request:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      
+      - name: check out repo under $GITHUB_WORKSPACE
+        uses: actions/checkout@v3
+
+      - name: POST to http://tx.fhir.org
+        id: request
+        uses: fjogeleit/http-request-action@v1.9.2
+        
+        with:
+          url: 'http://tx.fhir.org/r4/ValueSet/$validate-code'
+          method: 'POST'
+          contentType: 'application/fhir+json'
+          file: "${{ github.workspace }}/REST/parameter-ndc-validate-code-pass.json"
+
+      - name: Show response
+        run: echo ${{ steps.request.outputs.response }}
+
+      - name: Check response
+        env:
+          RESOURCE: ${{ fromJson(steps.request.outputs.response).resourceType }}
+          # RESULT: ${{ fromJson(steps.request.outputs.response).parameter[name="result"].valueBoolean }}
+          # MESSAGE: ${{ fromJson(steps.request.outputs.response).Parameters.parameter[1].valueString }}
+          # CAUSE: ${{ fromJson(steps.request.outputs.response).Parameters.parameter[2].valueString }}
+        run: |
+          echo $RESOURCE
+          # echo $RESULT
+          # echo $MESSAGE
+          # echo $CAUSE
