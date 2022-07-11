@@ -1,17 +1,17 @@
-name: Programmatically expand 'NCTIS Data Components' CodeSystem
+name: ValueSet $expand on 'NCTIS Data Components' CodeSystem
 
 on: 
   [push, pull_request]
   
 jobs:
 
-  request:
+  ValueSet-expand:
 
     runs-on: ubuntu-latest
 
     steps:
       
-      - name: check out repo under $GITHUB_WORKSPACE, so your job can access it
+      - name: check out repo under $GITHUB_WORKSPACE
         uses: actions/checkout@v3
 
       - name: POST to http://tx.fhir.org
@@ -22,17 +22,22 @@ jobs:
           url: 'http://tx.fhir.org/r4/ValueSet/$expand'
           method: 'POST'
           contentType: 'application/fhir+json'
-          # ignoreStatusCodes: '422'
+          ignoreStatusCodes: '422'
           file: "${{ github.workspace }}/REST/parameter-ndc-expansion.json"
 
-      - name: Show response
-        run: echo ${{ steps.request.outputs.response }}
+      - name: Print the response status
+        run: echo ${{ steps.request.outputs.status }}}
+        shell: bash
 
+      - name: Print the response payload
+        run: echo ${{ steps.request.outputs.response }}
+        shell: bash
+        
       - name: Check response
         env:
-          RESOURCE: "${{ fromJson(steps.request.outputs.response).resourceType }}"
-        run: |
-          echo $RESOURCE
-          # should only pass when response resourceType = "ValueSet"
-          # should fail when response resourceType = "OperationOutcome" (which contains an issue of severity error)
-          if: ${{ env.RESOURCE == 'ValueSet' }}
+          RESOURCE: ${{ fromJson(steps.request.outputs.response).resourceType }}
+        if: ${{ env.RESOURCE != 'ValueSet' }}
+        uses: actions/github-script@v3
+        with:
+          script: |
+              core.setFailed('The FHIR server response is not a ValueSet resource!')
