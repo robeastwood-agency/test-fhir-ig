@@ -33,4 +33,4 @@ jobs:
           RESOURCE: "${{ fromJson(steps.request.outputs.response).resourceType }}"
         run: |
           echo $RESOURCE
-          if: contains($RESOURCE, 'ValueSet')
+          # if: contains($RESOURCE, 'ValueSet')
