@@ -1,11 +1,11 @@
-name: Programmatically validate an existing code in 'Australian Immunisation Register Vaccine' CodeSystem
+name: ValueSet $validate-code an existing code in 'Australian Immunisation Register Vaccine' CodeSystem
 
 on: 
   [push, pull_request]
   
 jobs:
 
-  request:
+  ValueSet-validate-code:
 
     runs-on: ubuntu-latest
 
@@ -24,6 +24,15 @@ jobs:
           contentType: 'application/fhir+json'
           file: "${{ github.workspace }}/REST/parameter-air-validate-code-pass.json"
 
-      - name: Show response
+      - name: Print the response payload
         run: echo ${{ steps.request.outputs.response }}
-          # echo ${{ fromJson(steps.request.outputs.response). }}
+        shell: bash
+
+      - name: Check response
+        env:
+          RESULT: ${{ fromJson(steps.request.outputs.response).parameter[3].valueBoolean }}
+        if: ${{ env.RESULT != 'true' }}
+        uses: actions/github-script@v3
+        with:
+          script: |
+              core.setFailed('The FHIR server response is not result = true!')
