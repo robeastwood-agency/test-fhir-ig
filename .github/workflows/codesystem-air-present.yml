@@ -1,0 +1,42 @@
+name: GET 'Australian Immunisation Register Vaccine' CodeSystem
+
+on: 
+  [push, pull_request]
+  
+jobs:
+
+  CodeSystem-get:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      
+      - name: check out repo under $GITHUB_WORKSPACE
+        uses: actions/checkout@v3
+
+      - name: POST to http://tx.fhir.org
+        id: request
+        uses: fjogeleit/http-request-action@v1.9.2
+        
+        with:
+          url: 'http://tx.fhir.org/r4/CodeSystem/australian-immunisation-register-vaccine-20210222'
+          method: 'GET'
+          ignoreStatusCodes: '422'
+          contentType: 'application/fhir+json'
+
+      - name: Print the response status
+        run: echo ${{ steps.request.outputs.status }}}
+        shell: bash
+
+      - name: Print the response payload
+        run: echo ${{ steps.request.outputs.response }}
+        shell: bash
+        
+      - name: Check response
+        env:
+          RESOURCE: ${{ fromJson(steps.request.outputs.response).resourceType }}
+        if: ${{ env.RESOURCE != 'CodeSystem' }}
+        uses: actions/github-script@v3
+        with:
+          script: |
+              core.setFailed('The FHIR server response is not a CodeSystem resource!')
