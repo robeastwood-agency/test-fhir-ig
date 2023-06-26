@@ -1,0 +1,1 @@
+<a style="color: var(--footer-hyperlink-text-color); font-size: 12px; font-family: verdana" target="_blank" href="https://github.com/robeastwood-agency/test-fhir-ig/issues">Report an issue or propose a change</a>
